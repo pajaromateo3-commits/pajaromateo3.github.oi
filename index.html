@@ -1,105 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Un detalle para ti</title>
   <style>
     body {
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      background: linear-gradient(180deg, #ffe6e6 0%, #fff5f7 100%);
+      background: radial-gradient(circle at center, #000010, #000000);
       overflow: hidden;
-    }
-    .card {
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.15);
-      background: rgba(255,255,255,0.9);
-      max-width: 760px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-    h1 {
-      margin: 0 0 0.5rem;
-      font-size: 1.6rem;
-      color: #b30059;
-    }
-    p {
-      margin: 0;
-      font-size: 1.1rem;
-      color: #333;
-    }
-    .flowers {
-      margin-top: 1.5rem;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    .flowers img {
-      width: 90px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* Pétalos animados */
-    .petal {
+    h1 {
       position: absolute;
-      top: -10%;
-      width: 30px;
-      height: 30px;
-      background: radial-gradient(circle at 30% 30%, #ff4d6d, #b30059);
-      border-radius: 50% 50% 50% 50%;
-      opacity: 0.8;
-      animation: fall linear infinite;
+      top: 30px;
+      text-align: center;
+      color: white;
+      font-size: 1.5rem;
+      text-shadow: 0 0 10px rgba(255,255,255,0.7);
     }
-    @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.9;
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-      }
+
+    .flowers {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .flowers img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+   
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 3s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Un detalle para ti de mi parte</h1>
-    <p>🌹🌷 Con mucho cariño 🌷🌹</p>
-    <div class="flowers">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Red_rose_with_dew.jpg" alt="Rosa roja">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Tulip_-_floriade_canberra.jpg" alt="Tulipán">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Yellow_tulip_-_floriade_canberra.jpg" alt="Tulipán amarillo">
-    </div>
+  <h1>Un detalle para ti de mi parte</h1>
+  <div class="flowers">
+   
+    <img src="https://png.pngtree.com/png-clipart/20230919/original/pngtree-beautiful-red-roses-and-tulips-bouquet-png-image_12201441.png" alt="Rosas y Tulipanes">
   </div>
 
-  <!-- Generar pétalos en pantalla -->
   <script>
-    function createPetal() {
-      const petal = document.createElement("div");
-      petal.classList.add("petal");
-      document.body.appendChild(petal);
-
-      const size = Math.random() * 20 + 20; // tamaño entre 20px y 40px
-      petal.style.width = size + "px";
-      petal.style.height = size + "px";
-      petal.style.left = Math.random() * window.innerWidth + "px";
-      petal.style.animationDuration = (Math.random() * 5 + 5) + "s"; // 5-10s
-      petal.style.opacity = Math.random();
-
-      setTimeout(() => petal.remove(), 10000); // se borra después de caer
+    
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.top = Math.random() * 100 + "vh";
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.animationDuration = (2 + Math.random() * 3) + "s";
+      document.body.appendChild(star);
     }
-
-    setInterval(createPetal, 500); // un pétalo cada 0.5s
   </script>
 </body>
 </html>
