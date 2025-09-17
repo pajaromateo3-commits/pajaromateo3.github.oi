@@ -2,77 +2,174 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Un detalle para ti</title>
+  <title>Flores para ti</title>
   <style>
     body {
       margin: 0;
       height: 100vh;
+      background: radial-gradient(ellipse at center, #000 0%, #020b1a 100%);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: radial-gradient(circle at center, #000010, #000000);
-      overflow: hidden;
-      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+      font-family: Arial, sans-serif;
     }
 
     h1 {
-      position: absolute;
-      top: 30px;
-      text-align: center;
-      color: white;
-      font-size: 1.5rem;
-      text-shadow: 0 0 10px rgba(255,255,255,0.7);
+      margin-bottom: 40px;
+      font-weight: normal;
+      text-shadow: 0 0 5px #fff;
     }
 
-    .flowers {
+    .ramo {
       position: relative;
       width: 400px;
-      height: 400px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      height: 500px;
     }
 
-    .flowers img {
-      max-width: 100%;
-      max-height: 100%;
+    .tallo {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 8px;
+      height: 200px;
+      background: linear-gradient(#2e7d32, #1b5e20);
+      border-radius: 4px;
+      transform-origin: bottom center;
     }
 
    
-    .star {
+    .rosa {
       position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: twinkle 3s infinite alternate;
+      width: 80px;
+      height: 80px;
     }
 
-    @keyframes twinkle {
-      from { opacity: 0.2; }
-      to { opacity: 1; }
+    .rosa .centro {
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle at center, #d50000 0%, #880000 100%);
+      border-radius: 50%;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
     }
+
+    .rosa .petalo {
+      width: 40px;
+      height: 50px;
+      background: radial-gradient(circle at center, #f44336 0%, #b71c1c 100%);
+      border-radius: 50% 50% 50% 50%;
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      transform-origin: center bottom;
+    }
+
+    .rosa .petalo:nth-child(1) { transform: rotate(0deg) translateY(-20px); }
+    .rosa .petalo:nth-child(2) { transform: rotate(45deg) translateY(-20px); }
+    .rosa .petalo:nth-child(3) { transform: rotate(90deg) translateY(-20px); }
+    .rosa .petalo:nth-child(4) { transform: rotate(135deg) translateY(-20px); }
+    .rosa .petalo:nth-child(5) { transform: rotate(180deg) translateY(-20px); }
+    .rosa .petalo:nth-child(6) { transform: rotate(225deg) translateY(-20px); }
+    .rosa .petalo:nth-child(7) { transform: rotate(270deg) translateY(-20px); }
+    .rosa .petalo:nth-child(8) { transform: rotate(315deg) translateY(-20px); }
+
+
+    .tulipan {
+      position: absolute;
+      width: 60px;
+      height: 100px;
+    }
+
+    .tulipan .copa {
+      position: absolute;
+      bottom: 50px;
+      width: 60px;
+      height: 70px;
+      background: radial-gradient(circle at center, #ff4081 0%, #ad1457 100%);
+      border-radius: 30px 30px 10px 10px;
+      clip-path: polygon(0% 40%, 20% 0%, 50% 30%, 80% 0%, 100% 40%, 100% 100%, 0% 100%);
+    }
+
+    .tulipan .copa::before,
+    .tulipan .copa::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 20px;
+      height: 40px;
+      background: inherit;
+      border-radius: 50%;
+    }
+
+    .tulipan .copa::before {
+      left: 0;
+      transform: rotate(-20deg);
+    }
+
+    .tulipan .copa::after {
+      right: 0;
+      transform: rotate(20deg);
+    }
+
+   
+    .rosa:nth-child(1) { top: 10%; left: 20%; }
+    .rosa:nth-child(2) { top: 15%; left: 60%; }
+    .rosa:nth-child(3) { top: 35%; left: 40%; }
+
+    .tulipan:nth-child(4) { top: 55%; left: 25%; }
+    .tulipan:nth-child(5) { top: 50%; left: 65%; }
+    .tulipan:nth-child(6) { top: 70%; left: 45%; }
+
+    .tallo:nth-child(7) { transform: rotate(-20deg); }
+    .tallo:nth-child(8) { transform: rotate(20deg); }
+    .tallo:nth-child(9) { transform: rotate(-10deg); }
+    .tallo:nth-child(10) { transform: rotate(10deg); }
+    .tallo:nth-child(11) { transform: rotate(0deg); }
+    .tallo:nth-child(12) { transform: rotate(5deg); }
   </style>
 </head>
 <body>
-  <h1>Un detalle para ti de mi parte</h1>
-  <div class="flowers">
+  <h1>Un ramo de rosas y tulipanes para ti 🌹🌷</h1>
+  <div class="ramo">
    
-    <img src="https://png.pngtree.com/png-clipart/20230919/original/pngtree-beautiful-red-roses-and-tulips-bouquet-png-image_12201441.png" alt="Rosas y Tulipanes">
-  </div>
+    <div class="rosa">
+      <div class="petalo"></div><div class="petalo"></div><div class="petalo"></div><div class="petalo"></div>
+      <div class="petalo"></div><div class="petalo"></div><div class="petalo"></div><div class="petalo"></div>
+      <div class="centro"></div>
+    </div>
+    <div class="rosa">
+      <div class="petalo"></div><div class="petalo"></div><div class="petalo"></div><div class="petalo"></div>
+      <div class="petalo"></div><div class="petalo"></div><div class="petalo"></div><div class="petalo"></div>
+      <div class="centro"></div>
+    </div>
+    <div class="rosa">
+      <div class="petalo"></div><div class="petalo"></div><div class="petalo"></div><div class="petalo"></div>
+      <div class="petalo"></div><div class="petalo"></div><div class="petalo"></div><div class="petalo"></div>
+      <div class="centro"></div>
+    </div>
 
-  <script>
     
-    for (let i = 0; i < 80; i++) {
-      const star = document.createElement("div");
-      star.classList.add("star");
-      star.style.top = Math.random() * 100 + "vh";
-      star.style.left = Math.random() * 100 + "vw";
-      star.style.animationDuration = (2 + Math.random() * 3) + "s";
-      document.body.appendChild(star);
-    }
-  </script>
+    <div class="tulipan">
+      <div class="copa"></div>
+    </div>
+    <div class="tulipan">
+      <div class="copa"></div>
+    </div>
+    <div class="tulipan">
+      <div class="copa"></div>
+    </div>
+
+    
+    <div class="tallo"></div>
+    <div class="tallo"></div>
+    <div class="tallo"></div>
+    <div class="tallo"></div>
+    <div class="tallo"></div>
+    <div class="tallo"></div>
+  </div>
 </body>
 </html>
